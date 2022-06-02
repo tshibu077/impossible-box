@@ -1,9 +1,10 @@
 # 348-Final-Project
-Tanya Shibu
-EENG 348, Professor Rajit Manohar
-Final Project
+### Tanya Shibu
 
-Overview of the final project: 
+
+
+### Overview of the final project: 
+  
   The goal of the project is to build a "Puzzle Box". The aim was to create something fun and visual.
   The Puzzle Box is a game, and the goal for a player is to "unlock" it. 
   The box can only be opened electronically: a servo rotates a piece of the top face of the box to open a hole, and rotates back to close it. 
@@ -17,7 +18,8 @@ Below is a more detailed description of each task (Name, Hardware components, Se
 At the bottom of the README file is a table of contents. 
 
 
-  1. Name: LightLock
+####  1. Name: LightLock
+     
      Hardware components: 3x RGB LEDs, 4x SPDT switches
      
      Setup: There are three pairs of LEDs/Switches. Within each pair, the switch is used to toggle the LED on or off. 
@@ -43,7 +45,8 @@ At the bottom of the README file is a table of contents.
      Success condition: When the LED colours satisfy the code, the task is complete. 
 
 
-  2. Name: CombLock    
+ #### 2. Name: CombLock    
+     
      Hardware components: Rotary encoder, 4 Digit x 7 Segment LED Display. 
      
      Setup: A digital combination lock. The rotary encoder is the 'dial' being rotated, the 4x7-segment 
@@ -58,7 +61,8 @@ At the bottom of the README file is a table of contents.
      Otherwise, lock is reset and the player can try again.
 
 
-  3. Name: PCLock
+  #### 3. Name: PCLock
+     
      Hardware components: 8x Photocells
      
      Setup: There are 8 photocells (PCs) embedded in the face of the box. Two PCs are randomly selected to be 
@@ -75,13 +79,18 @@ At the bottom of the README file is a table of contents.
      
      
      
-Contents of this repository: 
+### Contents of this repository: 
+
 1. A library and class was made for each task. Each library has a source code (.cpp) and header file (.h). 
     These files are named LightLock, PCLock, and CombLock. 
     The classes contain functions to init the hardware components, init the passwords/codes, respond to player's inputs, 
     and verify success at the end. 
+
 2. A library for the servo-controlled lid. Contains function to init the servo, open the box, close the box. 
+
 3. A library for defining class for RGB LEDs. Contains functions for setting red/green/blue colour. 
+
 4. CorelDraw file for the box, used for laser cutting the pieces.
+
 5. Circuit schematics. 
 
