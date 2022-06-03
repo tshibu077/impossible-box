@@ -8,10 +8,11 @@
   The goal of the project is to build a "Puzzle Box". The aim was to create something fun and visual.
   The Puzzle Box is a game, and the goal for a player is to "unlock" it. 
   The box can only be opened electronically: a servo rotates a piece of the top face of the box to open a hole, and rotates back to close it. 
+  
   The completion of three puzzle-like interactive tasks result in this servo-controlled opening. 
   The tasks can be worked on concurrently. Each task has a simple success condition. 
   When all 3 success conditions are met, the main program will open the box. 
-  The I2C Display will be used to display an instruction/clue needed to solve each task.
+  The I2C Display will be used to display the instruction/clue needed to solve each task.
  
 
 Below is a more detailed description of each task (Name, Hardware components, Setup, Instructions, Success condition). 
