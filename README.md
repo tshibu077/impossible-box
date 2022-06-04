@@ -95,5 +95,10 @@ At the bottom of the README file is a table of contents.
 
 5. Circuit schematics. 
 
-6. Video demo (for PCLock and LightLock)
+6. Video demos: 
+    
+    "LightLock Demo.mov" : 
+    
+    Player William Starch is given a puzzle code ("BGR") and demonstrates control of the switches to solve to puzzle.
+    Arduino main program run for this video uses function updateLightLock() from LightLock.cpp
 
