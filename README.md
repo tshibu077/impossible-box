@@ -91,6 +91,8 @@ At the bottom of the README file is a table of contents.
 
 3. A library for defining class for RGB LEDs. Contains functions for setting red/green/blue colour. 
 
+In the "Demos, Schematics, PDFs" folder:
+
 4. PDF "Box - Laser-cut Layout" showing the laser-cut cardboard pieces of the box. 
 
 5. PDF: "Circuit schematics" for the 3 lock tasks
