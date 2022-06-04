@@ -91,9 +91,9 @@ At the bottom of the README file is a table of contents.
 
 3. A library for defining class for RGB LEDs. Contains functions for setting red/green/blue colour. 
 
-4. CorelDraw file for the box, used for laser cutting the pieces.
+4. PDF "Box - Laser-cut Layout" showing the laser-cut cardboard pieces of the box. 
 
-5. Circuit schematics. 
+5. PDF: "Circuit schematics" for the 3 lock tasks
 
 6. Video demos: 
     
