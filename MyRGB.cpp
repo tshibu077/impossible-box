@@ -1,7 +1,8 @@
-#include <Arduino.h>
+#include "Arduino.h"
 #include "MyRGB.h"
 
 #define blinkRate 150
+#define DELAY_SPDT 50
 
 /*Constructor without switch*/
 MyRGB::MyRGB(int redPin, int greenPin, int bluePin) {
@@ -19,7 +20,7 @@ MyRGB::MyRGB(int redPin, int greenPin, int bluePin, int switchPin) {
   pinMode(redPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
   pinMode(greenPin, OUTPUT);
-  pinMode(switchPin, INPUT);
+  pinMode(switchPin, INPUT_PULLUP);
   
   _redPin = redPin;
   _greenPin = greenPin;
@@ -29,33 +30,33 @@ MyRGB::MyRGB(int redPin, int greenPin, int bluePin, int switchPin) {
 
 /*Functions to make setting a color simple in main program*/
 void MyRGB::redRGB() {
-  analogWrite(_redPin, 255);
-  analogWrite(_greenPin, 0);
-  analogWrite(_bluePin, 0);
+  digitalWrite(_redPin, HIGH);
+  digitalWrite(_greenPin, LOW);
+  digitalWrite(_bluePin, LOW);
 }
 
 void MyRGB::greenRGB() {
-  analogWrite(_redPin, 0);
-  analogWrite(_greenPin, 255);
-  analogWrite(_bluePin, 0);
+  digitalWrite(_redPin, LOW);
+  digitalWrite(_greenPin, HIGH);
+  digitalWrite(_bluePin, LOW);
 }
 
 void MyRGB::blueRGB() {
-  analogWrite(_redPin, 0);
-  analogWrite(_greenPin, 0);
-  analogWrite(_bluePin, 255);
+  digitalWrite(_redPin, LOW);
+  digitalWrite(_greenPin, LOW);
+  digitalWrite(_bluePin, HIGH);
 }
 
 void MyRGB::whiteRGB() {
-  analogWrite(_redPin, 255);
-  analogWrite(_greenPin, 255);
-  analogWrite(_bluePin, 255);
+  digitalWrite(_redPin, HIGH);
+  digitalWrite(_greenPin, HIGH);
+  digitalWrite(_bluePin, HIGH);
 }
 
 void MyRGB::offRGB() {
-  analogWrite(_redPin, 0);
-  analogWrite(_greenPin, 0);
-  analogWrite(_bluePin, 0);
+  digitalWrite(_redPin, LOW);
+  digitalWrite(_greenPin, LOW);
+  digitalWrite(_bluePin, LOW);
 }
 
 /*Function that blinks the LED three times*/
@@ -72,3 +73,53 @@ void MyRGB::blinkThrice() {
     delay(blinkRate);
   }
 }
+
+int MyRGB::updateSwitch() {
+  swState = digitalRead(sw);
+  
+  if (swState != swStateLast) 
+  {
+    return swState;
+    swStateLast = swState;
+  }
+  else {
+    return swStateLast;
+  }
+  delay(50);
+}
+
+void MyRGB::updateLed(String color, int on) 
+{
+  if (on == 0)
+  {
+    offRGB();
+  }
+  else
+  {
+    int red = digitalRead(_redPin);
+    int blue = digitalRead(_bluePin);
+    int green = digitalRead(_greenPin);
+
+    if (red == HIGH || blue == HIGH || green == HIGH)
+    {
+      return;
+    }
+    
+    else
+    {
+      if (color == "red")
+      {
+        redRGB();
+      }
+      else if (color == "green")
+      {
+        greenRGB();
+      }
+      else if (color == "blue")
+      {
+        blueRGB();
+      }
+    }
+  }
+}
+
