@@ -14,90 +14,37 @@ LightLock::LightLock (int sw1, int sw2, int sw3, int sw4, int r1, int g1, int b1
   
 }
 
-void LightLock::setColorOn(MyRGB thisled) 
-{
-  if (_color == 2) {
-    thisled.redRGB();
-  }
-  else if (_color == 3) {
-    thisled.greenRGB();
-  }
-  else if (_color == 4) {
-    thisled.blueRGB();
-  }
-  else
-  {
-    thisled.blinkThrice();
-    thisled.offRGB();
-  }
-}
-
-void LightLock::turnOff(MyRGB thisled) 
-{
-  thisled.offRGB();
-}
-
-/*Cycles between red (2), green (3), blue (4)*/
-void LightLock::nextColor() 
-{
-  if (_color == 4) 
-  {
-    _color = 2;
-  }
-  else 
-  {
-    _color += 1;
-  }
-}
-
 void LightLock::updateLightLock() 
 {
-  _swState1 = digitalRead(led1.sw);
-  _swState2 = digitalRead(led2.sw);
-  _swState3 = digitalRead(led3.sw);
-  _swState4 = digitalRead(_sw4);
+  swState4 = digitalRead(_sw4);
 
-  /*First light switch*/
-  if (_swState1 != _swStateLast1) {
-    if (_swState1 == HIGH) {
-      setColorOn(led1);
+  if (swState4 != swLast4)
+  {
+    Serial.print("Switch 4 flipped: Color is ");
+    if (color == "red") 
+    {
+      color = "green";
     }
-    else if (_swState1 == LOW) {
-      turnOff(led1);
+    else if (color == "green")
+    {
+      color = "blue";
+    }   
+    else if (color == "blue")
+    {
+      color = "red";
     }
-    _swStateLast1 = _swState1;
-  }
+    Serial.println(color);
+    swLast4 = swState4;
+    delay(50);
+  } 
 
+  swState1 = led1.updateSwitch();
+  swState2 = led2.updateSwitch();
+  swState3 = led3.updateSwitch();
 
-  /*Second light switch*/
-  if (_swState2 != _swStateLast2) {
-    if (_swState2 == HIGH) {
-      setColorOn(led2);
-    }
-    else if (_swState2 == LOW) {
-      turnOff(led2);
-    }
-    _swStateLast2 = _swState2;
-  }
-
-
-  /*Third light switch*/
-  if (_swState3 != _swStateLast3) {
-    if (_swState3 == HIGH) {
-      setColorOn(led3);
-    }
-    else if (_swState3 == LOW) {
-      turnOff(led3);
-    }
-    _swStateLast3 = _swState3;
-  }
-
-  
-  /*Fourth (control) light switch*/
-  if (_swState4 != _swStateLast4) {
-    nextColor();
-    _swStateLast4 = _swState4;
-  }
+  led1.updateLed(color, swState1);
+  led2.updateLed(color, swState2);
+  led3.updateLed(color, swState3);
   
   delay(DELAY_SPDT);
 
