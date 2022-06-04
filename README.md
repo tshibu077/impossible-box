@@ -95,3 +95,5 @@ At the bottom of the README file is a table of contents.
 
 5. Circuit schematics. 
 
+6. Video demo (for PCLock and LightLock)
+
