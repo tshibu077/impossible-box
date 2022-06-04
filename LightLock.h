@@ -32,27 +32,15 @@ class LightLock {
     
     LightLock (int sw1, int sw2, int sw3, int sw4, int r1, int g1, int b1, int r2, int g2, int b2, int r3, int g3, int b3);
     
-    void nextColor();   
-    void turnOff(MyRGB);
-    void setColorOn(MyRGB);
     void updateLightLock();
  
   private:
 
     int _sw4;
-    byte _color;
+    String color = "red";
 
-    bool _swState1;
-    bool _swStateLast1;
-    
-    bool _swState2;
-    bool _swStateLast2;
-    
-    bool _swState3;
-    bool _swStateLast3;
-
-    bool _swState4;
-    bool _swStateLast4;
+    bool swState4;
+    bool swStateLast4;
     
 };
 
