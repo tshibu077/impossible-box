@@ -37,10 +37,15 @@ class LightLock {
   private:
 
     int _sw4;
+  
     String color = "red";
 
-    bool swState4;
-    bool swStateLast4;
+    int swState4;
+    int swLast4;
+  
+    int swState1;
+    int swState2;
+    int swState3;
     
 };
 
