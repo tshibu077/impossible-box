@@ -1,11 +1,12 @@
-# 348-Final-Project
+# EENG 348: Final Project
+# (Evil) Puzzle Box
 ### Tanya Shibu
 
 
 
 ### Overview of the final project: 
   
-  The goal of the project is to build a "Puzzle Box". The aim was to create something fun and visual.
+  The goal of the project is to build a "evil" (as in, tricky to open) box. The aim was to create something fun and visual.
   The Puzzle Box is a game, and the goal for a player is to "unlock" it. 
   The box can only be opened electronically: a servo rotates a piece of the top face of the box to open a hole, and rotates back to close it. 
   
